@@ -45,6 +45,43 @@ public class HomeActivity extends AppCompatActivity {
     private final String rainbow = "a";
     private final String flash = "b";
     private final String chase = "c";
+    //TODO:seekbar Srting R
+    private final String R1 ="A";
+    private final String R2 ="B";
+    private final String R3 ="C";
+    private final String R4 ="D";
+    private final String R5 ="E";
+    private final String R6 ="F";
+    private final String R7 ="G";
+    private final String R8 ="H";
+    private final String R9 ="I";
+    private final String R10 ="J";
+    private final String R11 ="K";
+    //TODO:seekbar Srting G
+    private final String G1 ="L";
+    private final String G2 ="M";
+    private final String G3 ="N";
+    private final String G4 ="O";
+    private final String G5 ="P";
+    private final String G6 ="Q";
+    private final String G7 ="R";
+    private final String G8 ="S";
+    private final String G9 ="T";
+    private final String G10 ="U";
+    private final String G11 ="V";
+    //TODO:seekbar Srting B
+    private final String B1 ="W";
+    private final String B2 ="X";
+    private final String B3 ="Y";
+    private final String B4 ="Z";
+    private final String B5 ="d";
+    private final String B6 ="e";
+    private final String B7 ="f";
+    private final String B8 ="g";
+    private final String B9 ="h";
+    private final String B10 ="i";
+    private final String B11 ="j";
+
     private SeekBar seekbarR,seekbarG,seekbarB;
     private TextView textViewR,textViewG,textViewB;
     private int level_R,level_G,level_B;
@@ -106,6 +143,66 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+//TODO:seekbar
+        textViewR = (TextView) findViewById(R.id.textView_R);
+        textViewR.setText("");
+        seekbarR = (SeekBar) findViewById(R.id.seekBar_R);
+        seekbarR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textViewR.setText("當前值:"+ progress +"/255");
+                level_R = progress;
+                Log.d("home","R = "+level_R);
+
+                int Rvalue = level_R / 10;
+                switch (Rvalue){
+                    case 10:
+                        sendCMD(R1);
+                        break;
+                    case 9:
+                        sendCMD(R2);
+                        break;
+                    case 8:
+                        sendCMD(R3);
+                        break;
+                    case 7:
+                        sendCMD(R4);
+                        break;
+                    case 6:
+                        sendCMD(R5);
+                        break;
+                    case 5:
+                        sendCMD(R6);
+                        break;
+                    case 4:
+                        sendCMD(R7);
+                        break;
+                    case 3:
+                        sendCMD(R8);
+                        break;
+                    case 2:
+                        sendCMD(R9);
+                        break;
+                    case 1:
+                        sendCMD(R10);
+                        break;
+                    case 0:
+                        sendCMD(R11);
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(context,"觸碰SeekBar",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(context,"放開SeekBar",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         textViewG = (TextView) findViewById(R.id.textView_G);
         textViewG.setText("");
@@ -116,6 +213,44 @@ public class HomeActivity extends AppCompatActivity {
                 textViewG.setText("當前值:"+ progress +"/255");
                 level_G = progress;
                 Log.d("home","G = "+level_G);
+
+                int Rvalue = level_G / 10;
+                switch (Rvalue){
+                    case 10:
+                        sendCMD(G1);
+                        break;
+                    case 9:
+                        sendCMD(G2);
+                        break;
+                    case 8:
+                        sendCMD(G3);
+                        break;
+                    case 7:
+                        sendCMD(G4);
+                        break;
+                    case 6:
+                        sendCMD(G5);
+                        break;
+                    case 5:
+                        sendCMD(G6);
+                        break;
+                    case 4:
+                        sendCMD(G7);
+                        break;
+                    case 3:
+                        sendCMD(G8);
+                        break;
+                    case 2:
+                        sendCMD(G9);
+                        break;
+                    case 1:
+                        sendCMD(G10);
+                        break;
+                    case 0:
+                        sendCMD(G11);
+                        break;
+
+                }
             }
 
             @Override
@@ -136,7 +271,45 @@ public class HomeActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textViewB.setText("當前值:"+ progress +"/255");
                 level_B = progress;
-                Log.d("home","G = "+level_B);
+                Log.d("home","B = "+level_B);
+
+                int Rvalue = level_B / 10;
+                switch (Rvalue){
+                    case 10:
+                        sendCMD(B1);
+                        break;
+                    case 9:
+                        sendCMD(B2);
+                        break;
+                    case 8:
+                        sendCMD(B3);
+                        break;
+                    case 7:
+                        sendCMD(B4);
+                        break;
+                    case 6:
+                        sendCMD(B5);
+                        break;
+                    case 5:
+                        sendCMD(B6);
+                        break;
+                    case 4:
+                        sendCMD(B7);
+                        break;
+                    case 3:
+                        sendCMD(B8);
+                        break;
+                    case 2:
+                        sendCMD(B9);
+                        break;
+                    case 1:
+                        sendCMD(B10);
+                        break;
+                    case 0:
+                        sendCMD(B11);
+                        break;
+
+                }
             }
 
             @Override
