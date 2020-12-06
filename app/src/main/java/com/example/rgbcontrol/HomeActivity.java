@@ -27,8 +27,6 @@ import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 //TODO: define
-    private Spinner spinnerSong;
-    private ArrayAdapter<CharSequence> spinnerAdpater;
     private Context context;
     private String btData;
     private TextView textViewBT;
@@ -47,15 +45,10 @@ public class HomeActivity extends AppCompatActivity {
     private final String rainbow = "a";
     private final String flash = "b";
     private final String chase = "c";
-    private Switch switchALL_ON,switchBreath,switchRLED,switchG,switchB,switchpurple,switchyellow,switchrainbow,switchflash,switchchase,switchBG;
-    private String songCMD = "0";
-    private Button buttonPlay;
-    private Button buttonLink;
     private SeekBar seekbarR,seekbarG,seekbarB;
     private TextView textViewR,textViewG,textViewB;
     private int level_R,level_G,level_B;
-    private Button button_Allon,button_R;
-    private ImageButton imageButtonR,imageButtonG,imageButtonB,imageButtonBG,imageButtonP,imageButtonY,imageButtonRainbow,imageButtonFlash,imageButtonChase,imageButtonBreath;
+       private ImageButton imageButtonR,imageButtonG,imageButtonB,imageButtonBG,imageButtonP,imageButtonY,imageButtonRainbow,imageButtonFlash,imageButtonChase,imageButtonBreath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,159 +106,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-//        switchALL_ON = (Switch) findViewById(R.id.switch_1);
-//        switchALL_ON.setChecked(false);
-//        switchALL_ON.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(ALL_ON);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchBreath = (Switch) findViewById(R.id.switch_3);
-//        switchBreath.setChecked(false);
-//        switchBreath.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(Breath);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchRLED = (Switch) findViewById(R.id.switch_4);
-//        switchRLED.setChecked(false);
-//        switchRLED.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(RLED);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchG = (Switch) findViewById(R.id.switch_5);
-//        switchG.setChecked(false);
-//        switchG.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(G);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchB = (Switch) findViewById(R.id.switch_6);
-//        switchB.setChecked(false);
-//        switchB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(B);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchpurple = (Switch) findViewById(R.id.switch_7);
-//        switchpurple.setChecked(false);
-//        switchpurple.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(purple);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchyellow = (Switch) findViewById(R.id.switch_8);
-//        switchyellow.setChecked(false);
-//        switchyellow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(yellow);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchBG = (Switch) findViewById(R.id.switch_9);
-//        switchBG.setChecked(false);
-//        switchBG.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(BG);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchrainbow = (Switch) findViewById(R.id.switch_10);
-//        switchrainbow.setChecked(false);
-//        switchrainbow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(rainbow);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchflash = (Switch) findViewById(R.id.switch_11);
-//        switchflash.setChecked(false);
-//        switchflash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(flash);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        switchchase = (Switch) findViewById(R.id.switch_12);
-//        switchchase.setChecked(false);
-//        switchchase.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if(isChecked){
-//                    sendCMD(chase);
-//                }else {
-//                    sendCMD(ALL_OFF);
-//                }
-//            }
-//        });
-//        textViewR = (TextView) findViewById(R.id.textView_R);
-//        textViewR.setText("");
-//        seekbarR = (SeekBar) findViewById(R.id.seekBar_R);
-//        seekbarR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                textViewR.setText("當前值:"+ progress +"/255");
-//                level_R = progress;
-//                Log.d("home","R = "+level_R);
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"觸碰SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"放開SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
         textViewG = (TextView) findViewById(R.id.textView_G);
         textViewG.setText("");
         seekbarG = (SeekBar) findViewById(R.id.seekBar_G);
@@ -309,76 +150,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-//        button_Allon = (Button) findViewById(R.id.button_Allon);
-//        button_R = (Button) findViewById(R.id.button_R);
 
-//        button_Allon.setOnClickListener(new ColorButton());
-//        button_R.setOnClickListener(new ColorButton());
-
-
-//        imageButtonTest = (ImageButton) findViewById(R.id.imageButton_test);
-//        imageButtonTest.setOnClickListener(new MyImagebutton());
-
-
-//        spinnerSong = (Spinner) findViewById(R.id.spinner_carSong);
-//        spinnerSong.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                switch (position){
-//                    case 0:
-//                        songCMD = "0";
-//                        break;
-//                    case 1:
-//                        songCMD = "1";
-//                        break;
-//                    case 2:
-//                        songCMD = "2";
-//                        break;
-//                    case 3:
-//                        songCMD = "3";
-//                        break;
-//                    case 4:
-//                        songCMD = "4";
-//                        break;
-//                    case 5:
-//                        songCMD = "5";
-//                        break;
-//                }
-//                Log.d("home","songCMD = "+songCMD);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
-//        spinnerAdpater = ArrayAdapter.createFromResource(context,R.array.song_name,R.layout.simple_spinner_item);
-//        spinnerAdpater.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinnerSong.setAdapter(spinnerAdpater);
-//
-//        buttonLink = (Button) findViewById(R.id.button_homeLink);
-//        buttonLink.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(btData != null){
-//                    BluetoothDevice device = btAdapter.getRemoteDevice(macAddress);
-//                    myChatService.connect(device);
-//                }else {
-//                    Toast.makeText(context,"no paired BT device.",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//
-//
-//        buttonPlay = (Button) findViewById(R.id.button_homePlay);
-//        buttonPlay.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d("home","send songCMD = "+songCMD);
-//                sendCMD(songCMD);
-//            }
-//        });
     }
     //返回鍵的設定
     @Override
