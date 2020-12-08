@@ -51,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
     private final String rainbow = "a";
     private final String flash = "b";
     private final String chase = "c";
+    private final String breathOff = "m";
+    private final String flashOff = "n";
 //    //TODO:seekbar Srting R
 //    private final String R1 =">AL<";
 //    private final String R2 =">BL<";
@@ -742,7 +744,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                         case 1:
                             imageButtonFlash.setBackgroundResource(R.drawable.flash_on);
-                            sendCMD(ALL_OFF);
+                            sendCMD(flashOff);
                             flagFlash = 0;
                             break;
                     }
@@ -770,7 +772,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                         case 1:
                             imageButtonBreath.setBackgroundResource(R.drawable.breath_on);
-                            sendCMD(ALL_OFF);
+                            sendCMD(breathOff);
                             flagBreath = 0;
                             break;
                     }
