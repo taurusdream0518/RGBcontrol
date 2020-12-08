@@ -44,141 +44,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="451dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <pl.droidsonroids.gif.GifImageButton
-            android:id="@+id/imageButton_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/all_on"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="8dp">
-
-        </pl.droidsonroids.gif.GifImageButton>
-
-        <pl.droidsonroids.gif.GifImageButton
-            android:id="@+id/imageButton_R"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/r_on"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <pl.droidsonroids.gif.GifImageButton
-            android:id="@+id/imageButton_B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/b_on"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="424dp" />
-
-        <pl.droidsonroids.gif.GifImageButton
-            android:id="@+id/imageButton_Y"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/y_on"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="210dp" />
-
-        <pl.droidsonroids.gif.GifImageButton
-            android:id="@+id/imageButton_Chase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/chase_on"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="280dp" />
-
-        <pl.droidsonroids.gif.GifImageButton
-            android:id="@+id/imageButton_Rainbow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rainbow_on"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="350dp" />
-    </LinearLayout>
-
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/imageButton_P"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/p_on"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/imageButton_BG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/bg_on"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/imageButton_G"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/g_on"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/imageButton_Flash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/flash_on"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/imageButton_Breath"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/breath_on"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/pick_color_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/color_on"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
     <SeekBar
         android:id="@+id/seekBar_w"
         android:layout_width="318dp"
@@ -243,6 +108,165 @@
         android:text="C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/all_on"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical">
+
+    </pl.droidsonroids.gif.GifImageButton>
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_R"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/r_on"
+        android:scaleType="fitXY"
+        app:layout_column="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_row="0" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_G"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="78dp"
+        android:background="@drawable/g_on"
+        android:saveEnabled="false"
+        android:scaleType="centerCrop"
+        app:layout_column="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="1" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/b_on"
+        android:scaleType="centerCrop"
+        app:layout_column="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="1" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="152dp"
+        android:background="@drawable/p_on"
+        android:scaleType="centerCrop"
+        app:layout_column="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="3" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_Y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/y_on"
+        android:scaleType="centerCrop"
+        app:layout_column="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="2" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/pick_color_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="130dp"
+        android:background="@drawable/color_on"
+        android:scaleType="centerCrop"
+        app:layout_column="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="0" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_Rainbow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rainbow_on"
+        android:scaleType="centerCrop"
+        app:layout_column="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_row="3" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_BG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_on"
+        android:scaleType="centerCrop"
+        app:layout_column="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="0" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_Flash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="374dp"
+        android:background="@drawable/flash_on"
+        android:scaleType="centerCrop"
+        app:layout_column="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_row="2" />
+
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_Breath"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginTop="374dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/breath_on"
+        android:scaleType="centerCrop"
+        app:layout_column="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_row="2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

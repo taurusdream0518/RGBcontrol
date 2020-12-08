@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -166,7 +167,7 @@ public class HomeActivity extends AppCompatActivity {
         imageButtonY = (GifImageButton) findViewById(R.id.imageButton_Y);
         imageButtonRainbow = (GifImageButton) findViewById(R.id.imageButton_Rainbow);
         imageButtonFlash = (GifImageButton) findViewById(R.id.imageButton_Flash);
-        imageButtonChase = (GifImageButton) findViewById(R.id.imageButton_Chase);
+//        imageButtonChase = (GifImageButton) findViewById(R.id.imageButton_Chase);
         imageButtonBreath = (GifImageButton) findViewById(R.id.imageButton_Breath);
 
         imageButtonAllOn.setOnClickListener(new MyImagebutton());
@@ -178,7 +179,7 @@ public class HomeActivity extends AppCompatActivity {
         imageButtonY.setOnClickListener(new MyImagebutton());
         imageButtonRainbow.setOnClickListener(new MyImagebutton());
         imageButtonFlash.setOnClickListener(new MyImagebutton());
-        imageButtonChase.setOnClickListener(new MyImagebutton());
+//        imageButtonChase.setOnClickListener(new MyImagebutton());
         imageButtonBreath.setOnClickListener(new MyImagebutton());
 
 //TODO:seekbar
@@ -627,6 +628,7 @@ public class HomeActivity extends AppCompatActivity {
                     switch (flagAllOn) {
                         case 0:
                             imageButtonAllOn.setBackgroundResource(R.drawable.all_off);
+                            imageButtonAllOn.setScaleType(ImageButton.ScaleType.CENTER);
                             sendCMD(ALL_ON);
                             flagAllOn = 1;
                             break;
@@ -749,20 +751,20 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
-                case R.id.imageButton_Chase:
-                    switch (flagChase){
-                        case 0:
-                            imageButtonChase.setBackgroundResource(R.drawable.all_off);
-                            sendCMD(chase);
-                            flagChase = 1;
-                            break;
-                        case 1:
-                            imageButtonChase.setBackgroundResource(R.drawable.chase_on);
-                            sendCMD(ALL_OFF);
-                            flagChase = 0;
-                            break;
-                    }
-                    break;
+//                case R.id.imageButton_Chase:
+//                    switch (flagChase){
+//                        case 0:
+//                            imageButtonChase.setBackgroundResource(R.drawable.all_off);
+//                            sendCMD(chase);
+//                            flagChase = 1;
+//                            break;
+//                        case 1:
+//                            imageButtonChase.setBackgroundResource(R.drawable.chase_on);
+//                            sendCMD(ALL_OFF);
+//                            flagChase = 0;
+//                            break;
+//                    }
+//                    break;
                 case R.id.imageButton_Breath:
                     switch (flagBreath){
                         case 0:
