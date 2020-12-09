@@ -241,6 +241,24 @@
         app:layout_row="0" />
 
     <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/imageButton_wc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/wc_off"
+        android:scaleType="centerCrop"
+        app:layout_column="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_gravity="center|center_horizontal|center_vertical"
+        app:layout_row="0" />
+
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/imageButton_Flash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

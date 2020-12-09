@@ -54,6 +54,8 @@ public class HomeActivity extends AppCompatActivity {
     private final String chase = "c";
     private final String breathOff = "m";
     private final String flashOff = "n";
+    private final String wcOff = "o";
+
 //    //TODO:seekbar Srting R
 //    private final String R1 =">AL<";
 //    private final String R2 =">BL<";
@@ -119,7 +121,7 @@ public class HomeActivity extends AppCompatActivity {
     private SeekBar seekbarR,seekbarG,seekbarB,seekbarW,seekbarC;
     private TextView textViewR,textViewG,textViewB,textViewW,textViewC;
     private int level_R,level_G,level_B,level_W,level_C;
-    private GifImageButton imageButtonR,imageButtonG,imageButtonB,imageButtonBG,imageButtonP,imageButtonY,imageButtonRainbow,imageButtonFlash,imageButtonChase,imageButtonBreath;
+    private GifImageButton imageButtonR,imageButtonG,imageButtonB,imageButtonBG,imageButtonP,imageButtonY,imageButtonRainbow,imageButtonFlash,imageButtonChase,imageButtonBreath,imageButtonWC;
     private GifImageButton imageButtonAllOn,mPickColorButton;
     private String rgbValue;
     private int mDefaultColor;
@@ -169,6 +171,7 @@ public class HomeActivity extends AppCompatActivity {
         imageButtonFlash = (GifImageButton) findViewById(R.id.imageButton_Flash);
 //        imageButtonChase = (GifImageButton) findViewById(R.id.imageButton_Chase);
         imageButtonBreath = (GifImageButton) findViewById(R.id.imageButton_Breath);
+        imageButtonWC = (GifImageButton) findViewById(R.id.imageButton_wc);
 
         imageButtonAllOn.setOnClickListener(new MyImagebutton());
         imageButtonR.setOnClickListener(new MyImagebutton());
@@ -181,6 +184,7 @@ public class HomeActivity extends AppCompatActivity {
         imageButtonFlash.setOnClickListener(new MyImagebutton());
 //        imageButtonChase.setOnClickListener(new MyImagebutton());
         imageButtonBreath.setOnClickListener(new MyImagebutton());
+        imageButtonWC.setOnClickListener(new MyImagebutton());
 
 //TODO:seekbar
         //TODO: R
@@ -371,7 +375,8 @@ public class HomeActivity extends AppCompatActivity {
         seekbarW.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                textViewW.setText("當前值:"+ progress +"/255");
+                textViewW.setText("當前值:"+ progress +"/100");
+                imageButtonWC.setBackgroundResource(R.drawable.wc_offgif);
                 level_W = progress;
                 Log.d("home","W = "+level_W);
                 wvalue = Integer.toHexString(level_W);
@@ -434,7 +439,8 @@ public class HomeActivity extends AppCompatActivity {
         seekbarC.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                textViewC.setText("當前值:"+ progress +"/255");
+                textViewC.setText("當前值:"+ progress +"/100");
+                imageButtonWC.setBackgroundResource(R.drawable.wc_offgif);
                 level_C = progress;
                 Log.d("home","C = "+level_C);
 
@@ -779,6 +785,10 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+                case R.id.imageButton_wc:
+                    imageButtonWC.setBackgroundResource(R.drawable.wc_off);
+                    sendCMD(wcOff);
+
             }
         }
     }
