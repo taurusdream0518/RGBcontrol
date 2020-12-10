@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Context context;
     private int mode;
-    private final int Mode_Home = 1;
+    private final int Mode_Rgb = 1;
     private final int Mode_Car = 2;
     private ListView listViewBT;
     private BluetoothAdapter btAdapter;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context = this;
-        mode = Mode_Home;
+        mode = Mode_Rgb;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//固定成直立的畫面
 
 
@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.mode_home:
-                mode = Mode_Home;
+            case R.id.mode_rgb:
+                mode = Mode_Rgb;
                 Log.d("main", "mode = " + mode);
                 break;
             case R.id.mode_car:
@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 String itemData = parent.getItemAtPosition(position).toString();
                 Log.d("main","itemDate = "+itemData);
                 switch (mode){
-                    case Mode_Home:
-                        intentBT = new Intent(context,HomeActivity.class);
+                    case Mode_Rgb:
+                        intentBT = new Intent(context, RGBActivity.class);
                         intentBT.putExtra("btdata",itemData);
                         startActivity(intentBT);
                         break;

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.rgbcontrol.CarActivity"></activity>
-        <activity android:name="com.example.rgbcontrol.HomeActivity" />
+        <activity android:name="com.example.rgbcontrol.RGBActivity" />
         <activity android:name="com.example.rgbcontrol.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

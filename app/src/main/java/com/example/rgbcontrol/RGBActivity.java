@@ -17,20 +17,15 @@ import android.os.Message;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import pl.droidsonroids.gif.GifImageButton;
 import top.defaults.colorpicker.ColorPickerPopup;
 
-public class HomeActivity extends AppCompatActivity {
+public class RGBActivity extends AppCompatActivity {
     //TODO: define
     private Context context;
     private String btData;
@@ -38,7 +33,6 @@ public class HomeActivity extends AppCompatActivity {
     private BluetoothAdapter btAdapter;
     private BTChatService myChatService;
     private String macAddress;
-
 
     private String ALL_ON = "1";
     private final String ALL_OFF = "2";
@@ -51,47 +45,10 @@ public class HomeActivity extends AppCompatActivity {
     private final String BG = "9";
     private final String rainbow = "a";
     private final String flash = "b";
-    private final String chase = "c";
     private final String breathOff = "m";
     private final String flashOff = "n";
     private final String wcOff = "o";
 
-//    //TODO:seekbar Srting R
-//    private final String R1 =">AL<";
-//    private final String R2 =">BL<";
-//    private final String R3 =">CL<";
-//    private final String R4 =">DL<";
-//    private final String R5 =">EL<";
-//    private final String R6 =">FL<";
-//    private final String R7 =">GL<";
-//    private final String R8 =">HL<";
-//    private final String R9 =">IL<";
-//    private final String R10 =">JL<";
-//    private final String R11 =">KL<";
-//    //TODO:seekbar Srting G
-//    private final String G1 =">L%<";
-//    private final String G2 =">M%<";
-//    private final String G3 =">N%<";
-//    private final String G4 =">O%<";
-//    private final String G5 =">P%<";
-//    private final String G6 =">Q%<";
-//    private final String G7 =">R%<";
-//    private final String G8 =">S%<";
-//    private final String G9 =">T%<";
-//    private final String G10 =">U%<";
-//    private final String G11 =">V%<";
-//    //TODO:seekbar Srting B
-//    private final String B1 =">W&<";
-//    private final String B2 =">X&<";
-//    private final String B3 =">Y&<";
-//    private final String B4 =">Z&<";
-//    private final String B5 =">d&<";
-//    private final String B6 =">e&<";
-//    private final String B7 =">f&<";
-//    private final String B8 =">g&<";
-//    private final String B9 =">h&<";
-//    private final String B10 =">i&<";
-    private final String B11 =">j&<";
 //    TODO:seekbar String W
     private final String W1 =">Lw<";
     private final String W2 =">Mw<";
@@ -117,10 +74,9 @@ public class HomeActivity extends AppCompatActivity {
     private final String C10 =">Ux<";
     private final String C11 =">Vx<";
 
-
-    private SeekBar seekbarR,seekbarG,seekbarB,seekbarW,seekbarC;
-    private TextView textViewR,textViewG,textViewB,textViewW,textViewC;
-    private int level_R,level_G,level_B,level_W,level_C;
+    private SeekBar seekbarW,seekbarC;
+    private TextView textViewW,textViewC;
+    private int level_W,level_C;
     private GifImageButton imageButtonR,imageButtonG,imageButtonB,imageButtonBG,imageButtonP,imageButtonY,imageButtonRainbow,imageButtonFlash,imageButtonChase,imageButtonBreath,imageButtonWC;
     private GifImageButton imageButtonAllOn,mPickColorButton;
     private String rgbValue;
@@ -132,7 +88,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_rgb);
 
         //TODO:onCreate
         context = this;
@@ -146,6 +102,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         btData = intent.getStringExtra("btdata");
         Log.d("home","btData = "+btData);
+
 
         textViewBT = (TextView) findViewById(R.id.textView_homeBT);
         textViewBT.setText(btData);
@@ -169,7 +126,6 @@ public class HomeActivity extends AppCompatActivity {
         imageButtonY = (GifImageButton) findViewById(R.id.imageButton_Y);
         imageButtonRainbow = (GifImageButton) findViewById(R.id.imageButton_Rainbow);
         imageButtonFlash = (GifImageButton) findViewById(R.id.imageButton_Flash);
-//        imageButtonChase = (GifImageButton) findViewById(R.id.imageButton_Chase);
         imageButtonBreath = (GifImageButton) findViewById(R.id.imageButton_Breath);
         imageButtonWC = (GifImageButton) findViewById(R.id.imageButton_wc);
 
@@ -182,192 +138,10 @@ public class HomeActivity extends AppCompatActivity {
         imageButtonY.setOnClickListener(new MyImagebutton());
         imageButtonRainbow.setOnClickListener(new MyImagebutton());
         imageButtonFlash.setOnClickListener(new MyImagebutton());
-//        imageButtonChase.setOnClickListener(new MyImagebutton());
         imageButtonBreath.setOnClickListener(new MyImagebutton());
         imageButtonWC.setOnClickListener(new MyImagebutton());
 
 //TODO:seekbar
-        //TODO: R
-//        textViewR = (TextView) findViewById(R.id.textView_R);
-//        textViewR.setText("");
-//        seekbarR = (SeekBar) findViewById(R.id.seekBar_R);
-//        seekbarR.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                textViewR.setText("當前值:"+ progress +"/255");
-//                level_R = progress;
-//                Log.d("home","R = "+level_R);
-//
-//
-//                int Rvalue = level_R / 10;
-//                switch (Rvalue){
-//                    case 10:
-//                        sendCMD(R1);
-//                        break;
-//                    case 9:
-//                        sendCMD(R2);
-//                        break;
-//                    case 8:
-//                        sendCMD(R3);
-//                        break;
-//                    case 7:
-//                        sendCMD(R4);
-//                        break;
-//                    case 6:
-//                        sendCMD(R5);
-//                        break;
-//                    case 5:
-//                        sendCMD(R6);
-//                        break;
-//                    case 4:
-//                        sendCMD(R7);
-//                        break;
-//                    case 3:
-//                        sendCMD(R8);
-//                        break;
-//                    case 2:
-//                        sendCMD(R9);
-//                        break;
-//                    case 1:
-//                        sendCMD(R10);
-//                        break;
-//                    case 0:
-//                        sendCMD(R11);
-//                        break;
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"觸碰SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"放開SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-        //TODO: G
-//        textViewG = (TextView) findViewById(R.id.textView_G);
-//        textViewG.setText("");
-//        seekbarG = (SeekBar) findViewById(R.id.seekBar_G);
-//        seekbarG.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                textViewG.setText("當前值:"+ progress +"/255");
-//                level_G = progress;
-//                Log.d("home","G = "+level_G);
-//
-//                int Gvalue = level_G / 10;
-//                switch (Gvalue){
-//                    case 10:
-//                        sendCMD(G1);
-//                        break;
-//                    case 9:
-//                        sendCMD(G2);
-//                        break;
-//                    case 8:
-//                        sendCMD(G3);
-//                        break;
-//                    case 7:
-//                        sendCMD(G4);
-//                        break;
-//                    case 6:
-//                        sendCMD(G5);
-//                        break;
-//                    case 5:
-//                        sendCMD(G6);
-//                        break;
-//                    case 4:
-//                        sendCMD(G7);
-//                        break;
-//                    case 3:
-//                        sendCMD(G8);
-//                        break;
-//                    case 2:
-//                        sendCMD(G9);
-//                        break;
-//                    case 1:
-//                        sendCMD(G10);
-//                        break;
-//                    case 0:
-//                        sendCMD(G11);
-//                        break;
-//
-//                }
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"觸碰SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"放開SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-// TODO: B
-
-//        textViewB = (TextView) findViewById(R.id.textView_B);
-//        textViewB.setText("");
-//        seekbarB = (SeekBar) findViewById(R.id.seekBar_B);
-//        seekbarB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                textViewB.setText("當前值:"+ progress +"/255");
-//                level_B = progress;
-//                Log.d("home","B = "+level_B);
-//
-//                int Bvalue = level_B / 10;
-//                switch (Bvalue){
-//                    case 10:
-//                        sendCMD(B1);
-//                        break;
-//                    case 9:
-//                        sendCMD(B2);
-//                        break;
-//                    case 8:
-//                        sendCMD(B3);
-//                        break;
-//                    case 7:
-//                        sendCMD(B4);
-//                        break;
-//                    case 6:
-//                        sendCMD(B5);
-//                        break;
-//                    case 5:
-//                        sendCMD(B6);
-//                        break;
-//                    case 4:
-//                        sendCMD(B7);
-//                        break;
-//                    case 3:
-//                        sendCMD(B8);
-//                        break;
-//                    case 2:
-//                        sendCMD(B9);
-//                        break;
-//                    case 1:
-//                        sendCMD(B10);
-//                        break;
-//                    case 0:
-//                        sendCMD(B11);
-//                        break;
-//                }
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"觸碰SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Toast.makeText(context,"放開SeekBar",Toast.LENGTH_SHORT).show();
-//            }
-//        });
 //TODO: W
         textViewW = (TextView) findViewById(R.id.textView_w);
         textViewW.setText("");
@@ -381,7 +155,6 @@ public class HomeActivity extends AppCompatActivity {
                 Log.d("home","W = "+level_W);
                 wvalue = Integer.toHexString(level_W);
                 Log.d("home","W HEX = "+wvalue);
-//                sendCMD(">"+wvalue+"<");
 
                 int Wvalue = level_W / 10;
                 switch (Wvalue){
@@ -418,7 +191,6 @@ public class HomeActivity extends AppCompatActivity {
                     case 0:
                         sendCMD(W11);
                         break;
-
                 }
             }
 
@@ -479,7 +251,6 @@ public class HomeActivity extends AppCompatActivity {
                     case 0:
                         sendCMD(C11);
                         break;
-
                 }
             }
 
@@ -523,10 +294,6 @@ public class HomeActivity extends AppCompatActivity {
                 Log.d("home","mDefaultColor = "+rgbValue);
             }
         });
-
-
-
-
     }
     //返回鍵的設定
     @Override
@@ -551,9 +318,7 @@ public class HomeActivity extends AppCompatActivity {
                     String error = msg.getData().getString(Constants.TOAST);
                     Toast.makeText(context,error,Toast.LENGTH_SHORT).show();
                     break;
-
             }
-
         }
     };
 
@@ -565,7 +330,6 @@ public class HomeActivity extends AppCompatActivity {
                 byte[] sendData = message.getBytes();
                 myChatService.BTWrite((sendData));
             }
-
         }
     }
 
@@ -577,41 +341,7 @@ public class HomeActivity extends AppCompatActivity {
             myChatService=null;
         }
     }
-    //    int flag1 = 0;
-//    int flag2 = 0;
-//    private class ColorButton implements View.OnClickListener {
-//        @Override
-//        public void onClick(View v) {
-//
-//            switch (v.getId()){
-//                case R.id.button_Allon :
-//
-//                    switch (flag1){
-//                        case 0:
-//                            sendCMD(ALL_ON);
-//                            flag1 = 1;
-//                            break;
-//                        case 1:
-//                            sendCMD(ALL_OFF);
-//                            flag1 = 0;
-//                            break;
-//                    }
-//                    break;
-//                case R.id.button_R:
-//                    switch (flag2){
-//                        case 0:
-//                            sendCMD(RLED);
-//                            flag2 = 1;
-//                            break;
-//                        case 1:
-//                            sendCMD(ALL_OFF);
-//                            flag2 = 0;
-//                            break;
-//                    }
-//
-//            }
-//        }
-//    }
+
     //TODO: imageButton onClick
     int flagAllOn = 0;
     int flagR = 0;
@@ -645,6 +375,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_R:
                     switch (flagR){
                         case 0:
@@ -659,6 +390,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_B:
                     switch (flagB){
                         case 0:
@@ -673,6 +405,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_G:
                     switch (flagG){
                         case 0:
@@ -687,6 +420,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_BG:
                     switch (flagBG){
                         case 0:
@@ -701,6 +435,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_P:
                     switch (flagP){
                         case 0:
@@ -715,6 +450,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_Y:
                     switch (flagY){
                         case 0:
@@ -729,6 +465,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_Rainbow:
                     switch (flagRainbow){
                         case 0:
@@ -743,6 +480,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_Flash:
                     switch (flagFlash){
                         case 0:
@@ -757,20 +495,7 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
-//                case R.id.imageButton_Chase:
-//                    switch (flagChase){
-//                        case 0:
-//                            imageButtonChase.setBackgroundResource(R.drawable.all_off);
-//                            sendCMD(chase);
-//                            flagChase = 1;
-//                            break;
-//                        case 1:
-//                            imageButtonChase.setBackgroundResource(R.drawable.chase_on);
-//                            sendCMD(ALL_OFF);
-//                            flagChase = 0;
-//                            break;
-//                    }
-//                    break;
+
                 case R.id.imageButton_Breath:
                     switch (flagBreath){
                         case 0:
@@ -785,12 +510,11 @@ public class HomeActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
                 case R.id.imageButton_wc:
                     imageButtonWC.setBackgroundResource(R.drawable.wc_off);
                     sendCMD(wcOff);
-
             }
         }
     }
-
 }
