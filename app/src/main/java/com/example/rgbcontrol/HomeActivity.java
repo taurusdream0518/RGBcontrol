@@ -136,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         context = this;
-        setTitle("Home control");
+        setTitle("RGB control");
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//固定成直立的畫面
         //返回鍵
