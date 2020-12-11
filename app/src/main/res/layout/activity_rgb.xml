@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1F5FF"
+    android:background="@drawable/rgb_back"
     tools:context=".RGBActivity">
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:gravity="center"
             android:text="TextView"
             android:textColor="#88C92E"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <Button

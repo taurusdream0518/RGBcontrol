@@ -1,51 +1,42 @@
 package com.example.rgbcontrol;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 public class CarActivity extends AppCompatActivity {
 
     private Context context;
-    private BTChatService myChatService;
-    private String btData;
-    private TextView textViewBT;
-    private BluetoothAdapter btAdapter;
-    private ImageButton imagebuttonForward,imagebuttonLeft,imagebuttonRight,imagebuttonBack,imagebuttonStop;
-    private String macAddress;
-    private Spinner spinnerSong;
-    private String songCMD = "0";
-    private final String car_foward = "f";
-    private final String car_left = "l";
-    private final String car_right = "r";
-    private final String car_back = "b";
-    private final String car_stop = "p";
-    private ArrayAdapter<CharSequence> spinnerAdpater;
-    private Switch switch_adc;
-    private Button buttonLink;
+
+    private Button  buttonBack;
+    private TextView textViewDatetime,textViewTemp,textViewHum;
+    private String webAddress="http://192.168.63.25:8080/11-14_api/";
+    private String readData = "read_data.php";
+    private StringBuilder myAddress;
+    private Button buttobUpdate;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +44,26 @@ public class CarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_car);
 
         context = this;
-        setTitle("Car control");
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setTitle("環境溫溼度監測");
+        textViewDatetime = (TextView) findViewById(R.id.textView_Datetime);
+        textViewTemp = (TextView) findViewById(R.id.textView_temp);
+        textViewHum = (TextView) findViewById(R.id.textView_hum);
+        buttobUpdate = (Button)findViewById(R.id.button_update);
+
+        buttobUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new PHPReadData().start();
+            }
+        });
 
 
-//        ActionBar bar = getSupportActionBar();
-//        bar.setDisplayHomeAsUpEnabled(true);
-//
-//        Intent intent = getIntent();
+
+
+        Intent intent = getIntent();
+
+
 //        btData = intent.getStringExtra("btdata");
 //        Log.d("car","btData = "+btData);
 //
@@ -155,6 +158,140 @@ public class CarActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    private class PHPReadData extends Thread{
+        private URL url;
+        private HttpURLConnection conn;
+        private int code;
+        private InputStream inputStream = null;
+        private String dataString;
+        private JSONArray jsonArray = null;
+        private StringBuffer userDataTime;
+        private StringBuffer userDataTemp;
+        private StringBuffer userDataHumi;
+
+        @Override
+        public void run() {
+            super.run();
+            myAddress = new StringBuilder();
+            myAddress.append(webAddress);
+            myAddress.append(readData);
+
+            try {
+                url = new URL(myAddress.toString());
+                Log.d("php", "url = " + url);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                conn = (HttpURLConnection) url.openConnection();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                conn.setRequestMethod("POST");
+            } catch (ProtocolException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                code = conn.getResponseCode();
+                Log.d("php", "code = " + code);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            if (code == HttpURLConnection.HTTP_OK) {
+                Log.d("php", "ok");
+                try {
+                    inputStream = conn.getInputStream();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                InputStreamReader reader = new InputStreamReader(inputStream);
+                BufferedReader stringReader = new BufferedReader(reader);
+                try {
+                    dataString = stringReader.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Log.d("php", "dataString = " + dataString);
+
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (dataString.length() == 0) {
+                            return;
+                        }
+
+                        try {
+                            jsonArray = new JSONArray(dataString);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        int count = jsonArray.length();
+                        Log.d("php", "count = " + count);
+                        userDataTime = new StringBuffer();
+                        userDataTemp = new StringBuffer();
+                        userDataHumi = new StringBuffer();
+                        for (int i = 0; i < count; i++) {
+                            JSONObject jsonData = null;
+                            try {
+                                jsonData = jsonArray.getJSONObject(i);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            try {
+                                String datetime = jsonData.getString("datetime");
+                                Log.d("php", "datetime = " + datetime);
+                                userDataTime.append(datetime);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            try {
+                                String temperature = jsonData.getString("temperature");
+                                Log.d("php", "temperature = " + temperature);
+                                userDataTemp.append(temperature + "℃");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            try {
+                                String humidity = jsonData.getString("humidity");
+                                Log.d("php", "humidity = " + humidity);
+                                userDataHumi.append(humidity + "％RH");
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+                        textViewDatetime.append(userDataTime.toString());
+                        textViewTemp.append(userDataTemp.toString());
+                        textViewHum.append(userDataHumi.toString());
+
+
+                    }
+                });
+
+
+            }
+        }
     }
 
 //    @Override
