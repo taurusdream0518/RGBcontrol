@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/rain"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,9 +16,9 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:text="環境溫溼度監測"
+        android:text="環境溫濕度監測"
         android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:orientation="vertical"
@@ -42,27 +43,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Datetime"
-            android:text="日期"
-            android:textColor="@android:color/holo_orange_dark"
-            android:textSize="18sp"
+            android:text="日期 :"
+            android:textColor="#FF8800"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView_temp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="溫度"
-            android:textColor="@android:color/holo_orange_dark"
-            android:textSize="18sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="溫度 :"
+            android:textColor="#D510AA"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView_hum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="濕度"
-            android:textColor="@android:color/holo_orange_dark"
-            android:textSize="18sp"
+            android:text="濕度 :"
+            android:textColor="#3BFFBA"
+            android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -72,13 +75,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
         android:layout_marginLeft="152dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="171dp"
         android:layout_marginRight="171dp"
-        android:text="Button"
+        android:background="#FFEB3B"
+        android:text="最新溫濕度"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

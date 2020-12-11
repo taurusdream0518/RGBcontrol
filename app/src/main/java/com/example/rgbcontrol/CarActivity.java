@@ -281,10 +281,9 @@ public class CarActivity extends AppCompatActivity {
 
 
                         }
-                        textViewDatetime.append(userDataTime.toString());
-                        textViewTemp.append(userDataTemp.toString());
-                        textViewHum.append(userDataHumi.toString());
-
+                        textViewDatetime.setText("日期 : "+ userDataTime.toString());
+                        textViewTemp.setText("溫度 : "+userDataTemp.toString());
+                        textViewHum.setText("濕度 : "+userDataHumi.toString());
 
                     }
                 });
