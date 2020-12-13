@@ -5,7 +5,8 @@
         android:id="@+id/mode_rgb"
         android:title="RGB Control" />
 
-    <item android:id="@+id/mode_car"
-        android:title="Car Control" />
+    <item
+        android:id="@+id/mode_dht"
+        android:title="DHT Read" />
 
 </menu>

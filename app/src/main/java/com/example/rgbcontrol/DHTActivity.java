@@ -1,7 +1,6 @@
 package com.example.rgbcontrol;
 
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -25,7 +24,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class CarActivity extends AppCompatActivity {
+public class DHTActivity extends AppCompatActivity {
 
     private Context context;
 
@@ -41,7 +40,7 @@ public class CarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car);
+        setContentView(R.layout.activity_dht);
 
         context = this;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

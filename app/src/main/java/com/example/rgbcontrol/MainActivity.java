@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Context context;
     private int mode;
     private final int Mode_Rgb = 1;
-    private final int Mode_Car = 2;
+    private final int Mode_Dht = 2;
     private ListView listViewBT;
     private BluetoothAdapter btAdapter;
     private Intent intent;
@@ -94,9 +94,12 @@ public class MainActivity extends AppCompatActivity {
                 mode = Mode_Rgb;
                 Log.d("main", "mode = " + mode);
                 break;
-            case R.id.mode_car:
-                mode = Mode_Car;
+            case R.id.mode_dht:
+                mode = Mode_Dht;
                 Log.d("main", "mode = " + mode);
+                intentBT = new Intent(context, DHTActivity.class);
+                startActivity(intentBT);
+
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -131,11 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         intentBT.putExtra("btdata",itemData);
                         startActivity(intentBT);
                         break;
-                    case Mode_Car:
-                        intentBT = new Intent(context,CarActivity.class);
-                        intentBT.putExtra("btdata",itemData);
-                        startActivity(intentBT);
-                        break;
+
                 }
             }
         });
